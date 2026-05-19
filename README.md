@@ -4,12 +4,12 @@
 
 ## 本次更新概览
 
-- **更新日期**：2026-05-15
+- **更新日期**：2026-05-15 (第二轮)
 - **检索主题**：Mobile AI Image Denoising
 - **数据源**：arXiv, Semantic Scholar, OpenAlex, Web Search
-- **检索关键词**：mobile image denoising, raw image denoising, real image denoising, burst/multi-frame denoising, low-light denoising, neural ISP, efficient/lightweight restoration, noise level map, controllable denoising, quantization/deployment
-- **本次收录**：9 篇新增论文
-- **推荐精读**：#9, #12, #13（Priority A）
+- **检索关键词**：mobile image denoising, raw image denoising, real image denoising, burst/multi-frame denoising, low-light denoising, neural ISP, efficient/lightweight restoration, noise level map, controllable denoising, quantization/deployment, self-supervised denoising
+- **本次收录**：9 篇新增论文（#18-#26）
+- **推荐精读**：#18 MobileIE, #19 ISPDiffuser, #20 TBSN（Priority A）
 - **说明**：以下内容由自动检索与启发式评分生成，最终结论建议结合论文全文、官方代码和实机部署结果确认。
 
 ## 目录
@@ -68,70 +68,47 @@
 
 ---
 
-### 9. DRNet: All-in-One Image Restoration via Prior-Guided Dynamic Reparameterization
+### 24. Low Light Image Enhancement Challenge at NTIRE 2026
 
 | 项目 | 内容 |
 |------|------|
-| **ArXiv ID** | [2605.08627](https://arxiv.org/abs/2605.08627) |
-| **PDF** | [下载链接](https://arxiv.org/pdf/2605.08627) |
-| **作者** | Ao Li, Xiaoning Liu, Sheng Li, Yapeng Du, Zhen Long, Lei Luo, Le Zhang, Ce Zhu |
-| **发布日期** | 2026-05-09 |
-| **代码** | [AVC2-UESTC/DRNet-AiO](https://github.com/AVC2-UESTC/DRNet-AiO) |
-| **会议/期刊** | IEEE TMM 2026 |
+| **ArXiv ID** | [2604.17669](https://arxiv.org/abs/2604.17669) |
+| **PDF** | [下载链接](https://arxiv.org/pdf/2604.17669) |
+| **作者** | George Ciubotariu 等 (90+ 位作者) |
+| **发布日期** | 2026-04-21 |
+| **会议** | CVPR 2026 Workshop (NTIRE) |
 | **推荐等级** | B |
-| **关键词** | 全能图像恢复, 动态重参数化, 小波变换, 多任务, 去噪 |
+| **关键词** | 低光增强, 联合去噪, 挑战赛, NTIRE 2026, 基准 |
 
-**摘要**: 提出 Dynamic Reparameterization Network (DRNet)，一种基于初始化阶段重配置范式的全能图像恢复框架。核心组件 DRMLP 由 Task-Specific Modulator (TSM) 引导，有效缓解任务异构性。引入 Continuous Wavelet Transform Encoder (CWTE) 利用频域特征实现轻量化设计。在五项恢复任务上达到 SOTA 性能，且参数效率优越。
+**摘要**: NTIRE 2026 低光图像增强挑战赛报告。聚焦联合去噪与低光增强，Track 1 有 195 名参与者，Track 2 有 153 名参与者，22 支团队提交有效结果。使用全新数据集评估方法在多样挑战条件下的表现。
 
 **关键贡献 / 可能价值**:
-- 初始化阶段重配置范式，消除逐输入计算开销
-- DRMLP + TSM 缓解多任务异构性
-- CWTE 频域编码器，轻量化设计
-- 工程关注点：动态重参数化可迁移到移动端多退化恢复场景；推理时无额外开销
+- 新型低光增强+去噪联合评估数据集
+- 22 支团队的系统方法比较
+- 工程关注点：联合去噪+低光增强方案可直接参考用于移动端暗光场景处理管线
+- 风险提示：挑战赛方案需关注计算开销是否满足移动端实时约束
 
 ---
 
-### 10. Pre-training Enables Extraordinary All-optical Image Denoising
+### 25. Efficient INT8 Single-Image Super-Resolution via Deployment-Aware Quantization and Teacher-Guided Training
 
 | 项目 | 内容 |
 |------|------|
-| **ArXiv ID** | [2605.07810](https://arxiv.org/abs/2605.07810) |
-| **PDF** | [下载链接](https://arxiv.org/pdf/2605.07810) |
-| **作者** | Xudong Lv, Yuxiang Sun, Shuo Wang, Nanxing Chen, Jun Guan, Jingtian Hu |
-| **发布日期** | 2026-05-08 |
-| **领域** | Physics > Optics, cs.CV |
-| **推荐等级** | C |
-| **关键词** | 光学神经网络, 衍射网络, 预训练, 全光去噪, 迁移学习 |
+| **ArXiv ID** | [2604.20291](https://arxiv.org/abs/2604.20291) |
+| **PDF** | [下载链接](https://arxiv.org/pdf/2604.20291) |
+| **作者** | Pham Phuong Nam Nguyen, Nam Tien Le, Thi Kim Trang Vo, Nhu Tinh Anh Nguyen |
+| **发布日期** | 2026-04-22 |
+| **会议/挑战** | MAI 2026 Challenge (Quantized 4K SR) |
+| **推荐等级** | B |
+| **关键词** | INT8 量化, 部署感知, 知识蒸馏, 移动 NPU, TFLite, 超分辨率 |
 
-**摘要**: 报道了一种预训练驱动的全光图像去噪方法。通过两步过程优化衍射网络：先在 345 万张多样但简单的图像上预训练，再在特定任务数据集上微调。相比传统傅里叶域滤波和直接训练的衍射网络，该迁移学习过程在 PSNR 低于 8 dB 的严重噪声图像上表现突出，可将 PSNR 提升至 18 dB 以上。
-
-**关键贡献 / 可能价值**:
-- 预训练策略显著提升光学衍射网络去噪性能
-- 单一预训练网络可微调处理多种图像风格
-- 工程关注点：属于光学计算方向，非电子部署；但预训练+微调范式可启发传统深度去噪网络训练策略
-- 风险提示：论文主要面向光学计算场景，与移动端 NPU/GPU 部署无直接关联
-
----
-
-### 11. Energy-efficient Integer-only vs. Floating-point FLBMF Filters for Low-power Embedded Image Denoising
-
-| 项目 | 内容 |
-|------|------|
-| **DOI** | [10.1038/s41598-026-51886-0](https://doi.org/10.1038/s41598-026-51886-0) |
-| **PDF** | [下载链接](https://www.nature.com/articles/s41598-026-51886-0) |
-| **作者** | Benard Nyangena Kiage, Michael W. Kimwele, Wilson K. Cheruiyot, Jael S. Wekesa |
-| **发布日期** | 2026-05-11 |
-| **期刊** | Scientific Reports (Springer Nature) |
-| **推荐等级** | C |
-| **关键词** | 整数量化, 低功耗, 嵌入式, FPGA, 模糊逻辑滤波, 脉冲噪声 |
-
-**摘要**: 系统评估整数-only FLBM 和浮点 FLBMF 实现在去噪性能、计算成本和硬件效率之间的权衡。整数-only FLBMF 在 ARM Cortex-M7 微控制器上减少 40% 内存和 55% 执行时间，PSNR 差距仅 ≤0.5dB。在 FPGA 平台上，整数实现实现更低 DSP/LUT 利用率和功耗。
+**摘要**: 面向部署的量化 SISR 框架，采用 extract-refine-upsample 设计。使用轻量级可重参数化骨干网络 + PixelShuffle 重建。三阶段训练：基础重建、教师引导精炼（Mamba-based teacher）、量化感知训练。在 MAI 2026 量化 4K 超分挑战赛上，INT8 TFLite 部署达到 30.006 dB PSNR。
 
 **关键贡献 / 可能价值**:
-- 首次在 MCU 和 FPGA 平台上系统评估整数-only 与浮点去噪滤波器
-- 量化隶属函数 + 定点运算 + 优化规则评估
-- 工程关注点：整数量化思路可迁移到移动端 NPU 的 INT8 去噪模型部署；但论文主要针对医学影像脉冲噪声，与手机摄影高斯/Real噪声场景差异较大
-- 风险提示：论文聚焦脉冲噪声 (impulse noise) 和医学影像，对移动端摄影去噪的直接参考价值有限
+- 三阶段训练流水线（基础→教师引导→QAT）
+- Mamba-based 教师网络蒸馏到轻量学生
+- 部署感知量化：权重裁剪 + BN 重校准
+- 工程关注点：INT8 TFLite 部署方案可直接迁移到移动端去噪模型量化流程；QAT + 教师蒸馏范式通用性强
 
 ---
 
@@ -220,6 +197,228 @@
 - 大规模对齐 RAW/DSLR 数据集
 - 移动端 GPU 推理基准
 - 工程关注点：学习型 ISP 与去噪模块的整合是移动端影像管线关键方向
+
+---
+
+### 18. MobileIE: An Extremely Lightweight and Effective ConvNet for Real-Time Image Enhancement on Mobile Devices
+
+| 项目 | 内容 |
+|------|------|
+| **ArXiv ID** | [2507.01838](https://arxiv.org/abs/2507.01838) |
+| **PDF** | [下载链接](https://arxiv.org/pdf/2507.01838) |
+| **作者** | Hailong Yan, Ao Li, Xiangtao Zhang, Zhe Liu, Zenglin Shi, Ce Zhu, Le Zhang |
+| **发布日期** | 2025-07-02 |
+| **代码** | [AVC2-UESTC/MobileIE](https://github.com/AVC2-UESTC/MobileIE) |
+| **会议** | ICCV 2025 |
+| **推荐等级** | A |
+| **关键词** | 移动端图像增强, 极致轻量化, 重参数化, CNN, 实时推理, 4K 参数 |
+
+**摘要**: 提出极致轻量化 CNN 框架（仅约 4K 参数），实现移动端实时图像增强。核心组件包括多分支重参数化卷积 (MBRConv)、特征自变换 (FST) 模块、分层双路径注意力 (HDPA) 以及增量权重优化 (IWO) 策略。首次在移动端实现高达 1100 FPS 的实时 IE 推理，同时保持竞争力的图像质量。
+
+**关键贡献 / 可能价值**:
+- 仅 4K 参数的极致轻量化：移动端推理可达 1100 FPS
+- MBRConv + IWO：训练时丰富结构，推理时极致压缩
+- FST + HDPA：4K 参数下的有效性能提升
+- 工程关注点：4K 参数范式可启发移动端去噪模型的极致压缩设计；代码已开源，可直接集成测试
+
+---
+
+### 19. ISPDiffuser: Learning RAW-to-sRGB Mappings with Texture-Aware Diffusion Models and Histogram-Guided Color Consistency
+
+| 项目 | 内容 |
+|------|------|
+| **ArXiv ID** | [2503.19283](https://arxiv.org/abs/2503.19283) |
+| **PDF** | [下载链接](https://arxiv.org/pdf/2503.19283) |
+| **作者** | Yang Ren, Hai Jiang, Menglong Yang, Wei Li, Shuaicheng Liu |
+| **发布日期** | 2025-03-25 |
+| **代码** | [RenYangSCU/ISPDiffuser](https://github.com/RenYangSCU/ISPDiffuser) |
+| **会议** | AAAI 2025 |
+| **推荐等级** | A |
+| **关键词** | 神经 ISP, 扩散模型, RAW-to-sRGB, 纹理感知, 颜色一致性, 直方图引导 |
+
+**摘要**: 提出基于扩散的解耦框架 ISPDiffuser，将 RAW-to-sRGB 映射分解为灰度空间的细节重建和从灰度到 sRGB 的颜色一致性映射。纹理感知扩散模型利用扩散模型的生成能力聚焦局部细节恢复，并提出纹理增强损失。随后引入直方图引导的颜色一致性模块，利用颜色直方图作为引导学习精确的颜色信息。
+
+**关键贡献 / 可能价值**:
+- 解耦式 RAW-to-sRGB 映射：细节重建 + 颜色映射
+- 纹理感知扩散模型 + 纹理增强损失
+- 直方图引导的颜色一致性模块
+- 工程关注点：解耦式设计思路可迁移到移动端 ISP+Denoise 联合优化；扩散模型推理开销大，但纹理增强损失和颜色一致性模块可独立使用
+- 风险提示：扩散模型多步采样不适合移动端实时部署，建议仅借鉴其解耦思路和损失设计
+
+---
+
+### 20. Rethinking Transformer-Based Blind-Spot Network for Self-Supervised Image Denoising (TBSN)
+
+| 项目 | 内容 |
+|------|------|
+| **ArXiv ID** | [2404.07846](https://arxiv.org/abs/2404.07846) |
+| **PDF** | [下载链接](https://arxiv.org/pdf/2404.07846) |
+| **作者** | Junyi Li, Zhilu Zhang, Wangmeng Zuo |
+| **发布日期** | 2024-04-11 (AAAI 2025 Camera Ready) |
+| **会议** | AAAI 2025 |
+| **推荐等级** | A |
+| **关键词** | 自监督去噪, 盲点网络, Transformer, 知识蒸馏, 真实噪声 |
+
+**摘要**: 首个基于 Transformer 的盲点网络 (TBSN) 用于自监督图像去噪。系统性地分析并重新设计通道注意力和空间注意力以满足盲点要求：通道自注意力通过分组避免信息泄漏，空间自注意力使用精心设计的掩码限制感受野。进一步引入知识蒸馏策略将 TBSN 蒸馏为更小的去噪器，在保持性能的同时提高计算效率。
+
+**关键贡献 / 可能价值**:
+- 首个 Transformer 盲点网络：扩大自监督去噪感受野
+- 分组通道注意力 + 掩码空间注意力满足盲点约束
+- 知识蒸馏压缩 TBSN 到更小去噪器
+- 工程关注点：蒸馏后的小型去噪器适合移动端部署；自监督训练无需配对数据，降低训练成本
+- 风险提示：需确认蒸馏后模型在 NPU 上的推理性能
+
+---
+
+### 21. MSSIDD: A Benchmark for Multi-Sensor Denoising
+
+| 项目 | 内容 |
+|------|------|
+| **ArXiv ID** | [2411.11562](https://arxiv.org/abs/2411.11562) |
+| **PDF** | [下载链接](https://arxiv.org/pdf/2411.11562) |
+| **数据集** | [Kaggle MSSIDD](https://www.kaggle.com/datasets/sjtuwh/mssidd) |
+| **作者** | Shibin Mei, Hang Wang, Bingbing Ni |
+| **发布日期** | 2024-11-18 |
+| **机构** | 华为 & 上海交通大学 |
+| **推荐等级** | B |
+| **关键词** | 多传感器, SIDD, 基准, 传感器可迁移性, RAW 去噪, 域泛化 |
+
+**摘要**: 首个面向 RAW 域去噪模型传感器可迁移性评估的数据集 MSSIDD。包含 6 个不同传感器的 60,000 张 RAW 图像。提出传感器一致性训练框架，使去噪模型学习传感器不变特征，促进一致模型向未见传感器的泛化。
+
+**关键贡献 / 可能价值**:
+- 首个多传感器 RAW 去噪基准数据集（6 传感器，60K 图像）
+- 传感器一致性训练框架
+- 工程关注点：移动端多传感器去噪泛化问题与实际部署直接相关；华为工业场景验证
+- 风险提示：数据集基于 sRGB 图像退化生成，与真实多传感器采集可能有差异
+
+---
+
+### 22. NTIRE 2025 Challenge on RAW Image Restoration and Super-Resolution
+
+| 项目 | 内容 |
+|------|------|
+| **ArXiv ID** | [2506.02197](https://arxiv.org/abs/2506.02197) |
+| **PDF** | [下载链接](https://arxiv.org/pdf/2506.02197) |
+| **作者** | Marcos V. Conde, Radu Timofte 等 |
+| **发布日期** | 2025-06-04 |
+| **会议** | CVPR 2025 Workshop (NTIRE) |
+| **推荐等级** | B |
+| **关键词** | RAW 修复, 超分辨率, 挑战赛, ISP 管线, 基准 |
+
+**摘要**: NTIRE 2025 RAW 图像修复与超分辨率挑战赛报告。聚焦修复模糊和有噪声的 RAW 图像，并将其超分辨率到高分辨率输出。对现代 ISP 管线至关重要但相比 RGB 领域研究不足。
+
+**关键贡献 / 可能价值**:
+- RAW 域修复+超分联合评估基准
+- SOTA 方法系统性比较
+- 工程关注点：RAW 修复方案对移动端 ISP 管线设计有直接参考价值
+
+---
+
+### 23. RAW Image Reconstruction from RGB on Smartphones: NTIRE 2025 Challenge Report
+
+| 项目 | 内容 |
+|------|------|
+| **ArXiv ID** | [2506.01947](https://arxiv.org/abs/2506.01947) |
+| **PDF** | [下载链接](https://arxiv.org/pdf/2506.01947) |
+| **作者** | Marcos V. Conde, Radu Timofte, Radu Berdan, Beril Besbinar, Daisuke Iso 等 |
+| **发布日期** | 2025-06-02 |
+| **会议** | CVPR 2025 Workshop (NTIRE) |
+| **推荐等级** | B |
+| **关键词** | 逆向 ISP, RAW 重建, sRGB-to-RAW, 智能手机, 基准 |
+
+**摘要**: 第二届 sRGB 到 RAW 重建（逆向 ISP）挑战赛。目标是在无元数据条件下从 sRGB 图像恢复智能手机 RAW 传感器图像，即"逆转" ISP 变换。150+ 参与者提交了高效模型。
+
+**关键贡献 / 可能价值**:
+- 逆向 ISP 评估基准
+- SOTA 方法建立从 sRGB 生成逼真 RAW 数据的标准
+- 工程关注点：逆向 ISP 可用于从已有 sRGB 数据集生成 RAW 训练数据，降低 RAW 去噪训练数据准备成本
+
+---
+
+### 26. NTIRE 2025 Challenge on Low Light Image Enhancement: Methods and Results
+
+| 项目 | 内容 |
+|------|------|
+| **ArXiv ID** | [2510.13670](https://arxiv.org/abs/2510.13670) |
+| **PDF** | [下载链接](https://arxiv.org/pdf/2510.13670) |
+| **作者** | Liu 等 |
+| **发布日期** | 2025-10-15 |
+| **会议** | CVPR 2025 Workshop (NTIRE) |
+| **推荐等级** | B |
+| **关键词** | 低光增强, 挑战赛报告, NTIRE 2025, 去噪, 方法比较 |
+
+**摘要**: NTIRE 2025 低光图像增强挑战赛报告。全面回顾提出的解决方案和最终成果，系统比较 SOTA LLIE 方法。
+
+**关键贡献 / 可能价值**:
+- SOTA 低光增强方法系统性比较
+- 工程关注点：低光增强方案与去噪模块可联合设计，适用于移动端暗光场景
+
+---
+
+### 9. DRNet: All-in-One Image Restoration via Prior-Guided Dynamic Reparameterization
+
+| 项目 | 内容 |
+|------|------|
+| **ArXiv ID** | [2605.08627](https://arxiv.org/abs/2605.08627) |
+| **PDF** | [下载链接](https://arxiv.org/pdf/2605.08627) |
+| **作者** | Ao Li, Xiaoning Liu, Sheng Li, Yapeng Du, Zhen Long, Lei Luo, Le Zhang, Ce Zhu |
+| **发布日期** | 2026-05-09 |
+| **代码** | [AVC2-UESTC/DRNet-AiO](https://github.com/AVC2-UESTC/DRNet-AiO) |
+| **会议/期刊** | IEEE TMM 2026 |
+| **推荐等级** | B |
+| **关键词** | 全能图像恢复, 动态重参数化, 小波变换, 多任务, 去噪 |
+
+**摘要**: 提出 Dynamic Reparameterization Network (DRNet)，一种基于初始化阶段重配置范式的全能图像恢复框架。核心组件 DRMLP 由 Task-Specific Modulator (TSM) 引导，有效缓解任务异构性。引入 Continuous Wavelet Transform Encoder (CWTE) 利用频域特征实现轻量化设计。在五项恢复任务上达到 SOTA 性能，且参数效率优越。
+
+**关键贡献 / 可能价值**:
+- 初始化阶段重配置范式，消除逐输入计算开销
+- DRMLP + TSM 缓解多任务异构性
+- CWTE 频域编码器，轻量化设计
+- 工程关注点：动态重参数化可迁移到移动端多退化恢复场景；推理时无额外开销
+
+---
+
+### 10. Pre-training Enables Extraordinary All-optical Image Denoising
+
+| 项目 | 内容 |
+|------|------|
+| **ArXiv ID** | [2605.07810](https://arxiv.org/abs/2605.07810) |
+| **PDF** | [下载链接](https://arxiv.org/pdf/2605.07810) |
+| **作者** | Xudong Lv, Yuxiang Sun, Shuo Wang, Nanxing Chen, Jun Guan, Jingtian Hu |
+| **发布日期** | 2026-05-08 |
+| **领域** | Physics > Optics, cs.CV |
+| **推荐等级** | C |
+| **关键词** | 光学神经网络, 衍射网络, 预训练, 全光去噪, 迁移学习 |
+
+**摘要**: 报道了一种预训练驱动的全光图像去噪方法。通过两步过程优化衍射网络：先在 345 万张多样但简单的图像上预训练，再在特定任务数据集上微调。相比传统傅里叶域滤波和直接训练的衍射网络，该迁移学习过程在 PSNR 低于 8 dB 的严重噪声图像上表现突出，可将 PSNR 提升至 18 dB 以上。
+
+**关键贡献 / 可能价值**:
+- 预训练策略显著提升光学衍射网络去噪性能
+- 单一预训练网络可微调处理多种图像风格
+- 工程关注点：属于光学计算方向，非电子部署；但预训练+微调范式可启发传统深度去噪网络训练策略
+- 风险提示：论文主要面向光学计算场景，与移动端 NPU/GPU 部署无直接关联
+
+---
+
+### 11. Energy-efficient Integer-only vs. Floating-point FLBMF Filters for Low-power Embedded Image Denoising
+
+| 项目 | 内容 |
+|------|------|
+| **DOI** | [10.1038/s41598-026-51886-0](https://doi.org/10.1038/s41598-026-51886-0) |
+| **PDF** | [下载链接](https://www.nature.com/articles/s41598-026-51886-0) |
+| **作者** | Benard Nyangena Kiage, Michael W. Kimwele, Wilson K. Cheruiyot, Jael S. Wekesa |
+| **发布日期** | 2026-05-11 |
+| **期刊** | Scientific Reports (Springer Nature) |
+| **推荐等级** | C |
+| **关键词** | 整数量化, 低功耗, 嵌入式, FPGA, 模糊逻辑滤波, 脉冲噪声 |
+
+**摘要**: 系统评估整数-only FLBM 和浮点 FLBMF 实现在去噪性能、计算成本和硬件效率之间的权衡。整数-only FLBMF 在 ARM Cortex-M7 微控制器上减少 40% 内存和 55% 执行时间，PSNR 差距仅 ≤0.5dB。在 FPGA 平台上，整数实现实现更低 DSP/LUT 利用率和功耗。
+
+**关键贡献 / 可能价值**:
+- 首次在 MCU 和 FPGA 平台上系统评估整数-only 与浮点去噪滤波器
+- 量化隶属函数 + 定点运算 + 优化规则评估
+- 工程关注点：整数量化思路可迁移到移动端 NPU 的 INT8 去噪模型部署；但论文主要针对医学影像脉冲噪声，与手机摄影高斯/Real噪声场景差异较大
+- 风险提示：论文聚焦脉冲噪声 (impulse noise) 和医学影像，对移动端摄影去噪的直接参考价值有限
 
 ---
 
@@ -370,7 +569,7 @@
 |------|------|
 | **ArXiv ID** | [2211.04687](https://arxiv.org/abs/2211.04687) |
 | **PDF** | [下载链接](https://arxiv.org/pdf/2211.04687) |
-| **作者** | Zhuoqun Liu, Meiguind Jin, Ying Chen, Huaida Liu, Canqian Yang, Hongkai Xiong |
+| **作者** | Zhuoqun Liu, Meiguind Jin, Ying Chen, Huaida Liu, Canqun Yang, Hongkai Xiong |
 | **发布日期** | 2022-11-09 (修订 2023-05-25) |
 | **代码** | [JL-DY/MFDNet](https://github.com/JL-DY/MFDNet) |
 | **推荐等级** | A |
@@ -410,31 +609,39 @@
 | 关键词 | 相关论文 |
 |--------|----------|
 | NPU 部署 | #1, #2, #7 |
-| 知识蒸馏 | #1 |
+| 知识蒸馏 | #1, #20, #25 |
 | NAS 架构搜索 | #2 |
 | 查找表 (LUT) | #3 |
 | 多帧融合 / Burst HDR | #4 |
-| RAW 去噪 | #5, #7, #8, #12 |
+| RAW 去噪 | #5, #7, #8, #12, #21, #22 |
 | 移动端 GPU | #6 |
 | 内存访问优化 | #1, #7 |
 | 硬件感知设计 | #1, #2, #7 |
-| 噪声合成 / 噪声估计 | #5, #12 |
+| 噪声合成 / 噪声估计 | #5, #12, #21 |
 | 可控去噪 | #13 |
 | 相机参数 | #13 |
 | 无配对训练 | #14 |
-| 学习型 ISP | #6, #14 |
+| 学习型 ISP | #6, #14, #19 |
 | 全能图像恢复 | #9 |
 | 动态重参数化 | #9 |
 | 域适应 | #17 |
-| 扩散模型 | #16, #17 |
-| 低光去噪 | #5, #16 |
+| 扩散模型 | #16, #17, #19 |
+| 低光去噪 / 增强 | #5, #16, #24, #26 |
 | 整数量化 / 低功耗 | #11 |
 | 光学去噪 | #10 |
 | 高斯去噪基准 | #15 |
+| 极致轻量化 CNN | #18 |
+| 自监督去噪 | #20 |
+| 多传感器泛化 | #21 |
+| 逆向 ISP | #23 |
+| INT8 量化 | #11, #25 |
+| RAW 修复 / 超分 | #22 |
+| 挑战赛报告 | #4, #5, #6, #15, #22, #23, #24, #25, #26 |
 
 ---
 
 ## 更新日志
 
+- **2026-05-15 (第二轮)**: 自动检索移动端 AI 影像去噪论文，新增 9 篇候选论文。检索源：arXiv, Semantic Scholar, OpenAlex, Web Search。关键词覆盖 mobile/raw/real/burst/low-light/neural ISP/efficient restoration/controllable denoising/quantization/self-supervised。新增论文 #18 MobileIE, #19 ISPDiffuser, #20 TBSN (Priority A), #21 MSSIDD, #22 NTIRE 2025 RAW Restoration, #23 NTIRE 2025 RAW Reconstruction, #24 NTIRE 2026 LLIE, #25 Efficient INT8 SR, #26 NTIRE 2025 LLIE。跳过约 50 篇不相关论文（扩散生成去噪、视频去噪、3D 去噪、信号处理去噪等非移动端影像领域）。
 - **2026-05-15**: 自动检索移动端 AI 影像去噪论文，新增 9 篇候选论文。检索源：arXiv, OpenAlex, Web Search。关键词覆盖 mobile/raw/real/burst/low-light/neural ISP/efficient restoration/controllable denoising/quantization。新增论文 #9-#17。
 - **2026-05-15**: 初始版本，收集 8 篇移动端 AI 影像去噪相关论文
